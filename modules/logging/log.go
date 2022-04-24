@@ -130,6 +130,10 @@ func registerLog(b *bot.Bot) {
 		logGroupMessage(groupMessage)
 	})
 
+	b.SelfGroupMessageEvent.Subscribe(func(qqClient *client.QQClient, groupMessage *message.GroupMessage) {
+		logGroupMessage(groupMessage)
+	})
+
 	b.GroupMuteEvent.Subscribe(func(qqClient *client.QQClient, event *client.GroupMuteEvent) {
 		logGroupMuteEvent(event)
 	})
